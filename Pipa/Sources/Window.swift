@@ -2,16 +2,14 @@ import CWindow
 
 public class Window{
 	var swindow : SopranoWindow;
-	let windowClassName: String;
 	let windowName : String;
 
-	public init(windowClassName: String = "Pipa Class", windowName: String = "Pipa" ){
-		self.windowClassName = windowClassName
+	public init(windowName: String = "Pipa" ){
 		self.windowName = windowName
-		swindow = CreateSopranoWindow(windowClassName, windowName)
+		swindow = createSopranoWindow(windowName, 800, 600)
+		print(swindow.data.height)
 	}
 	deinit {
-		DestroySopranoWindow(&swindow, windowClassName)
+		destroySopranoWindow(&swindow)
 	}
 }
-

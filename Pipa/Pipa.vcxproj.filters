@@ -18,5 +18,6 @@
     <None Include="Sources\Pipa.swift" />
     <None Include="Sources\Window.swift" />
     <None Include="Tests\PipaTests.swift" />
+    <None Include="Sources\Log.swift" />
   </ItemGroup>
 </Project>

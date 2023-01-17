@@ -21,10 +21,10 @@
     <ClInclude Include="Sources\CWindow\Include\Window.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Sources\Include\Core.h">
+    <ClInclude Include="Sources\Soprano\Include\Soprano.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Sources\Include\Soprano.h">
+    <ClInclude Include="Sources\Log\Include\Log.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -32,7 +32,13 @@
     <ClCompile Include="Sources\CWindow\Window.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Sources\Soprano.c">
+    <ClCompile Include="Sources\Soprano\Soprano.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\Log\Log.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tests\LogTest.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
