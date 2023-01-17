@@ -4,6 +4,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Pipa", "Pipa\Pipa.vcxproj", "{5C1CEF3B-A2F2-469C-B95A-EA6C3609F670}"
+	ProjectSection(ProjectDependencies) = postProject
+		{3A2D559F-B383-4BFF-8B42-52F30B2822DA} = {3A2D559F-B383-4BFF-8B42-52F30B2822DA}
+		{67C2FCB2-F1F2-4635-B5D1-361018FBD5E8} = {67C2FCB2-F1F2-4635-B5D1-361018FBD5E8}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Soprano", "Soprano\Soprano.vcxproj", "{67C2FCB2-F1F2-4635-B5D1-361018FBD5E8}"
 EndProject
@@ -26,6 +30,7 @@ Global
 		{5C1CEF3B-A2F2-469C-B95A-EA6C3609F670}.Release|x86.ActiveCfg = Release|Win32
 		{5C1CEF3B-A2F2-469C-B95A-EA6C3609F670}.Release|x86.Build.0 = Release|Win32
 		{67C2FCB2-F1F2-4635-B5D1-361018FBD5E8}.Debug|x64.ActiveCfg = Debug|x64
+		{67C2FCB2-F1F2-4635-B5D1-361018FBD5E8}.Debug|x64.Build.0 = Debug|x64
 		{67C2FCB2-F1F2-4635-B5D1-361018FBD5E8}.Debug|x86.ActiveCfg = Debug|Win32
 		{67C2FCB2-F1F2-4635-B5D1-361018FBD5E8}.Debug|x86.Build.0 = Debug|Win32
 		{67C2FCB2-F1F2-4635-B5D1-361018FBD5E8}.Release|x64.ActiveCfg = Release|x64

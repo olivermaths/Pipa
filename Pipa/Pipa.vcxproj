@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Sources\Log.swift" />
     <None Include="Sources\Pipa.swift" />
     <None Include="Sources\Window.swift" />
     <None Include="Tests\PipaTests.swift" />
@@ -79,6 +80,7 @@
     <CustomBuildAfterTargets />
     <OutDir>$(Solutiondir)\Build\x86_64-unknown-windows-msvc\debug</OutDir>
     <IntDir>$(SolutionDir)\Build-int\$(Platform)\$(Configuration)\</IntDir>
+    <SourcePath>$(VC_SourcePath); Sources</SourcePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

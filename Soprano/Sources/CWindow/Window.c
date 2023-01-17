@@ -1,51 +1,92 @@
+#if _WIN32
 #include "Include/Window.h"
+#include "stdlib.h"
+#include <windows.h>
+#include <stdio.h>
 
-struct SopranoWindow CreateSopranoWindow(const char* class_name, const char* window_name) {
-	HINSTANCE hInstance = GetModuleHandle(0);
+#define MAX_WINDOW_CONTEXT 5
+static LPCWSTR __spClassName = L"Soprano Window Class";
+
+struct PlaftormContext {
+	HINSTANCE instance;
+	HWND hwnd;
+};
+
+struct SopranoWindowPointer {
+	char *win_name;
+	void* win_ptr;
+};
+
+struct SopranoWindowContext{ 
+	void* pointer;
+	struct SopranoWindowPointer contexts[MAX_WINDOW_CONTEXT];
+};
+
+
+static struct SopranoWindowContext currentContext = {
+	.pointer = NULL,
+	.contexts = NULL,
+};
+
+
+struct SopranoWindow createSopranoWindow(const char* window_name, int width, int height) {
+	
+	struct PlaftormContext *ic = malloc(sizeof(struct PlaftormContext));
+	if (ic == NULL) {
+		MessageBox(0, L"Program run out of memory", L"Fatal Error", MB_ICONEXCLAMATION | MB_OK);
+		exit(0);
+	};
+
+	
+	ic->instance = GetModuleHandle(0);
+	
 	WNDCLASS wc = {
+		.hIcon = LoadIcon(ic->instance,IDI_APPLICATION),
 		.style = CS_HREDRAW | CS_VREDRAW,
 		.hCursor = LoadCursor(NULL, IDC_ARROW),
 		.lpfnWndProc = DefWindowProc,
-		.hInstance = hInstance,
-		.lpszClassName = class_name
+		.hInstance = ic->instance,
+		.lpszClassName = __spClassName
 	};
 	RegisterClass(&wc);
 
 
-	HWND hwnd = CreateWindowEx(
+	ic->hwnd = CreateWindowEx(
 		0,
-		class_name,
+		__spClassName,
 		window_name,
 		WS_OVERLAPPED,
-		CW_USEDEFAULT, CW_USEDEFAULT, 800, 600,
+		CW_USEDEFAULT, CW_USEDEFAULT, width, height,
 		NULL,
 		NULL,
-		hInstance,
+		ic->instance,
 		NULL
 		
 	);
-	if (hwnd == NULL) {
-		printf("failed to create window\n");
+	if (ic->hwnd == NULL) {
+		MessageBox(0, L"Failed  to create a new Window!", L"Fatal Error", MB_ICONEXCLAMATION | MB_OK);
 		exit(0);
 	}
 	struct SopranoWindow win = {
-		.instance = hInstance,
-		.hwnd = hwnd,
-		.data.width = 800,
-		.data.heigh = 600
+		.plaftormContext = ic,
+		.data.width = width,
+		.data.height = height
 	};
-	ShowWindow(hwnd, SW_SHOW);
+	ShowWindow(ic->hwnd, SW_SHOW);
 	return win;
 }
 
-void DestroySopranoWindow(const struct SopranoWindow *win, const char* class_name) {
-	if (!DestroyWindow(win->hwnd)) {
-		printf("failed to close window!!\n");
+void destroySopranoWindow(const struct SopranoWindow *win) {
+	struct PlaftormContext* ic = win->plaftormContext;
+	if (!DestroyWindow(ic->hwnd)) {
+		MessageBox(0, L"Failed  to Close Window!", L"Fatal Error", MB_ICONEXCLAMATION | MB_OK);
 		exit(0);
 	};
-	if (!UnregisterClass(class_name, win->instance)) {
-		printf("failed to close unregister window class!!\n");
+	if (!UnregisterClass(__spClassName, ic->instance)) {
+		MessageBox(0, L"Failed  to UnregisterClass!", L"Fatal Error", MB_ICONEXCLAMATION | MB_OK);
 		exit(0);
 	}
-	printf("window closed! and it workd!\n");
+	printf("Window Closed!!");
 }
+
+#endif

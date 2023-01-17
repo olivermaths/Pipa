@@ -1,22 +1,19 @@
 #pragma once
-#if _WIN64
-#include "../../Include/Core.h"
+
 
 struct SopranoWindow {
-	HINSTANCE instance;
-	HWND hwnd;
+	void* plaftormContext;
 	struct {
-		UINT32 width;
-		UINT32 heigh;
+		int width;
+		int height;
 	} data;
 };
 
-struct SopranoWindow CreateSopranoWindow(const char* class_name, const char* window_name);
+struct SopranoWindow createSopranoWindow(const char* window_name, int width, int height);
+void                 destroySopranoWindow(const struct SopranoWindow * win);
 
-void DestroySopranoWindow(const struct SopranoWindow * win, const char* class_name);
 
-
-#elif __linux__
+#if __linux__
 @not implemented yet
 #elif __APPLE__
 @not implemented yet
