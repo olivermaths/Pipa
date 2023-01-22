@@ -15,13 +15,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Tests\SopranoTests.swift" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Sources\CWindow\Include\Window.h">
+    <ClInclude Include="Sources\Window\Include\Window.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Sources\Soprano\Include\Soprano.h">
+    <ClInclude Include="Sources\Core.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Sources\Log\Include\Log.h">
@@ -29,17 +26,17 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Sources\CWindow\Window.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Sources\Soprano\Soprano.c">
+    <ClCompile Include="Sources\Window\Window.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Sources\Log\Log.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Tests\LogTest.c">
+    <ClCompile Include="Sources\Samples\main.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Tests\WindowTests.swift" />
   </ItemGroup>
 </Project>
