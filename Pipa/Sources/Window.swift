@@ -1,15 +1,14 @@
-import CWindow
+import ARMKWindow
 
 public class Window{
-	var swindow : SopranoWindow;
+	var windowInstance : ARMK_Window;
 	let windowName : String;
 
 	public init(windowName: String = "Pipa" ){
 		self.windowName = windowName
-		swindow = createSopranoWindow(windowName, 800, 600)
-		print(swindow.data.height)
+		windowInstance = armk_createWindow(windowName, 800, 600)
 	}
 	deinit {
-		destroySopranoWindow(&swindow)
+		armk_destroyWindow(&windowInstance)
 	}
 }

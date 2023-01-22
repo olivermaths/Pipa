@@ -8,7 +8,7 @@ let package = Package(
     products: [
         .executable(name: "Pipa", targets: ["Sandbox"]),
         .library(name: "Pipa", targets: ["Pipa"]),
-        .library(name: "CWindow", targets: ["CWindow"])
+        .library(name: "ARMKWindow", targets: ["ARMKWindow"])
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -27,13 +27,13 @@ let package = Package(
         .target(
             name: "Pipa",
             dependencies: [
-               "CWindow"
+               "ARMKWindow"
             ],
             path: "Pipa/Sources"
         ),
         .target(
-            name: "CWindow",
-            path: "Soprano/Sources/CWindow",
+            name: "ARMKWindow",
+            path: "AraripeManakin/Sources/Window",
             linkerSettings: [
             .linkedLibrary("user32"),
             .linkedLibrary("gdi32"),
@@ -46,9 +46,9 @@ let package = Package(
             path: "Pipa/Tests"
         ),
         .testTarget(
-            name: "SopranoTest",
-            dependencies: ["CWindow"],
-            path: "Soprano/Tests"
+            name: "ARMKTests",
+            dependencies: ["ARMKWindow"],
+            path: "AraripeManakin/Tests"
         )
     ]
 )

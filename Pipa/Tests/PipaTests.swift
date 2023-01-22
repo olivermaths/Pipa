@@ -1,6 +1,5 @@
 import XCTest
 @testable import Pipa
-@testable import CWindow
 
 final class pipaTests: XCTestCase {
     func testExample() throws {

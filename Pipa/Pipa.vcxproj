@@ -124,11 +124,11 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PreBuildEvent>
-      <Command>swift build --scratch-path ../Build</Command>
-    </PreBuildEvent>
-    <PostBuildEvent>
       <Command>
       </Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>swift build --scratch-path ../Build</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
